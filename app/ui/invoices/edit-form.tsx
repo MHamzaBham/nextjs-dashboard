@@ -19,9 +19,14 @@ export default function EditInvoiceForm({
   customers: CustomerField[];
 }) {
   
-  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    await updateInvoice(invoice.id, formData);
+  };
+
   return (
-    <form action={updateInvoiceWithId}>
+    <form onSubmit={handleSubmit}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
