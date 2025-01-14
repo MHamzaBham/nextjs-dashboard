@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
-import { fetchCustomers, fetchFilteredCustomers } from '@/app/lib/data';
+import { fetchFilteredCustomers } from '@/app/lib/data';
 import { CreateCustomer } from '../invoices/buttons';
 
 export default async function CustomersTable({

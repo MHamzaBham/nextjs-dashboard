@@ -53,7 +53,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
         VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
         `;
     }
-    catch (error) {
+    catch {
         return {
             message: 'Database Error: Failed to Create Invoice.',
         };
@@ -78,7 +78,7 @@ export async function updateInvoice(id: string, formData: FormData) {
             WHERE id = ${id}
         `
     }
-    catch (error) {
+    catch {
         return {
             message: 'Database Error: Failed to Update Invoice.',
         };
@@ -94,7 +94,7 @@ export async function deleteInvoice(id: string) {
             DELETE FROM invoices WHERE id = ${id}
         `
     }
-    catch (error) {
+    catch {
         return {
             message: 'Database Error: Failed to Delete Invoice.',
         };
@@ -163,7 +163,7 @@ export async function createCustomer(prevState: CustomerState, formData: FormDat
   if (image_url) {
     try {
       imageUrl = await uploadImageToStorage(image_url);
-    } catch (uploadError) {
+    } catch {
       return {
         message: 'Image upload failed. Please try again.',
       };
